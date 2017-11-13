@@ -1,0 +1,83 @@
+h3{
+    font-weight: 600;
+    color:#1f090a;
+    font-size:1.2rem;
+}
+p{
+    color:rgba(31, 9, 10, .6);
+    font-size:.8rem;
+}
+main{
+    padding: 5vw;
+}
+main .row{
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+main img{
+    height: 100%;
+    width: 100%;
+}
+main .logo-container{
+    width: 50vw;
+}
+
+/* numbers */
+main .numbers{
+    display: flex;
+    flex-flow: wrap;
+    margin-left: -5vw;
+}
+main .numbers .number{
+    position: relative;
+    width:40vw;
+    margin-left:5vw;
+    margin-bottom: 3vh;
+}
+main .numbers .number-img{
+    position: absolute;
+    width: 8vw;
+}
+main .number .text-container{
+    margin-left:10vw;
+}
+main .number .text-container h3{
+    margin-bottom: 1vh;
+}
+
+
+
+
+/* buttons */
+main .buttons{
+    display: flex;
+    margin-left: -5vw;
+}
+main .buttons .button{
+    position: relative;
+    display: block;
+    background-color:#e8635c;
+    border-radius: 5px;
+    padding: 1vh 2vw;
+    width: 40vw;
+    margin-left: 5vw;
+}
+main .buttons .button-img{
+    width:8vw;
+    position: absolute;
+    transform: translate(-50% -50%);
+}
+main .buttons .text-container{
+    margin-left: 10vw;
+}
+main .button p,main .button h3{
+    color: white;
+}
+
+
+@media screen and (max-width:480px){
+    html{
+        font-size: 8px;
+    }
+
+ }
