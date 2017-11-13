@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -f -r build",
+    "clean": "rm -rf build",
     "dev": "npm-run-all -s server ",
     "server": "webpack-dev-server --open --colors --config ./config/webpack.dev.config.js",
-    "build": "webpack --config ./config/webpack.prod.config.js"
+    "prod":"webpack --config ./config/webpack.prod.config.js",
+    "build": "npm-run-all -p clean prod"
   },
   "author": "",
   "license": "ISC",

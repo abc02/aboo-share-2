@@ -8,36 +8,42 @@ p{
     font-size:.8rem;
 }
 main{
+   
     padding: 5vw;
 }
 main .row{
     overflow: hidden;
-    margin-bottom: 1vh;
+    margin-bottom: 3vh;
 }
 main .logo-container{
-    width: 50vw;
+    position: relative;
+    height: 6vh;
 }
 main .logo{
-    height: 10vh;
+    position: absolute;
+    width: 40vw;
+    height: 6vh;
     background: url('../images/logo.png') no-repeat;
     background-size: contain;
 }
 main .preview{
-    height: 40vh;
-    background: url('../images/preview.png') no-repeat;
+    height: 43vh;
+    background-image: url('../images/preview.png');
     background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
 /* numbers */
 main .numbers{
     display: flex;
     flex-flow: wrap;
-    margin-left: -5vw;
+    /* margin-left: -4vw; */
 }
 main .numbers .number{
     position: relative;
-    width:40vw;
-    margin-left:5vw;
-    margin-bottom: 3vh;
+    width:41vw;
+    margin-left:3vw;
+    margin-bottom: 1vh;
 }
 main .numbers .number-img{
     position: absolute;
@@ -70,7 +76,7 @@ main .number .text-container h3{
 /* buttons */
 main .buttons{
     display: flex;
-    margin-left: -5vw;
+    justify-content: space-between;
 }
 main .buttons .button{
     position: relative;
@@ -79,7 +85,6 @@ main .buttons .button{
     border-radius: 5px;
     padding: 1vh 2vw;
     width: 40vw;
-    margin-left: 5vw;
 }
 main .button-img{
     float:left;
@@ -106,7 +111,7 @@ main .button p,main .button h3{
 
 @media screen and (max-width:480px){
     html{
-        font-size: 8px;
+        font-size:12px;
     }
 
  }

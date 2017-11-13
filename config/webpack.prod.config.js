@@ -1,6 +1,9 @@
-var webpack = require('webpack');
-var merge = require('webpack-merge');
-var baseWebpackConfig = require('./webpack.base.config');
+const webpack = require('webpack');
+const path = require('path');
+const merge = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const baseWebpackConfig = require('./webpack.base.config');
+const sourcePath = path.join(__dirname, '../src');
 
 module.exports = merge(baseWebpackConfig, {
   // eval-source-map is faster for development
@@ -17,6 +20,14 @@ module.exports = merge(baseWebpackConfig, {
       minimize: true,
       compress: {
         warnings: false,
+      }
+    }),
+    new HtmlWebpackPlugin({
+      template: sourcePath + '/index.html',
+      cache: false,
+      minify: {
+        collapseWhitespace: true,
+        preserveLineBreaks: true
       }
     })
   ]
