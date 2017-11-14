@@ -1,29 +1,29 @@
 const webpack = require('webpack');
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const sourcePath = path.join(__dirname, '../src');
-const outputPath = path.join(__dirname, '../build');
+const path = require('./path')
+
+let base = {
+    build: path.sourcePath + 'main.js'
+}
 
 module.exports = {
     // 入口文件
-    entry: {
-        index: sourcePath + '/index.js',
-    },
+    entry: base,
     // 出口文件
     output: {
-        path: outputPath,
+        path: path.outputPath,
         filename: '[name].js',
     },
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
-            "@": sourcePath,
+            "@": path.sourcePath,
             "styles": "@/styles"
         },
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: sourcePath + '/index.html'
+            template: path.sourcePath + '/index.html'
         }),
     ],
 
@@ -31,7 +31,7 @@ module.exports = {
         // 配置编译打包规则
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
             },
@@ -40,14 +40,23 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                      name: '[hash].[ext]',
-                      outputPath:'images/'
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.(png|jpe?g|)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10000,
+                            fallback: 'file-loader',
+                            name: '[name].[ext]?[hash:6]',
+                            outputPath: 'images/',
+                        }
                     }
-                  }
+                ]
+
             }
         ]
     }
